@@ -30,6 +30,11 @@ router.get("/", (req, res) => {
       });
   });
 
+  router.get("/login", (req, res) => {
+    console.log("Is logged in?", req.session.loggedIn);
+    res.render("login", { loggedIn: req.session.loggedIn });
+  });
+  
 router.get("/:id", (req, res) => {
   //we need to get all posts
   Quiz.findByPk(req.params.id,{
