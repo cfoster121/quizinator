@@ -15,19 +15,19 @@ Question.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    answer_A: {
+    answer_a: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    answer_B: {
+    answer_b: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    answer_C: {
+    answer_c: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    answer_D: {
+    answer_d: {
         type: DataTypes.STRING,
         allowNull: false,
     },
