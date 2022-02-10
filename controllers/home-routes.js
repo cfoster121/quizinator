@@ -2,6 +2,34 @@ const router = require("express").Router();
 const { User, Quiz, Question } = require("../models");
 const sequelize = require("../config/connection");
 //home route server homepage
+router.get("/", (req, res) => {
+    //we need to get all posts
+    Quiz.findAll({
+    //   attributes: ["id", "title", "body", "user_id"],
+    //   include: [
+    //     {
+    //       model: User,
+    //       as: "user",
+    //       attributes: ["username"],
+    //     }
+    //   ],
+    })
+      .then((dbQuizData) => {
+        //serialize data
+        if (!dbQuizData) {
+          res.status(404).json({ message: "No Quizes Available" });
+          return;
+        }
+        // const quiz = dbQuizData.map((post) => post.get({ plain: true })); // serialize all the posts
+        // console.log(posts);
+        res.render("home");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 router.get("/:id", (req, res) => {
   //we need to get all posts
   Quiz.findByPk(req.params.id,{
