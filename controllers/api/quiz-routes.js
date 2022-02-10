@@ -3,17 +3,17 @@ const { Quiz } = require("../../models");
 //get all the comments
 
 
-// router.get("/:quiz_id", (req, res) => {
-//   Quiz.findByPk(req.params.quiz_id,{
-//   })
-//     .then((dbQuizData) => {
-//       res.json(dbQuizData);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+router.get("/:quiz_id", (req, res) => {
+  Quiz.findByPk(req.params.quiz_id,{
+  })
+    .then((dbQuizData) => {
+      res.json(dbQuizData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.post("/", (req, res) => {
     //expects 
