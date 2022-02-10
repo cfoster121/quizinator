@@ -14,7 +14,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-    await Quiz.bulkCreate(quizData, {
+  await Quiz.bulkCreate(quizData, {
     individualHooks: true,
     returning: true,
   });
