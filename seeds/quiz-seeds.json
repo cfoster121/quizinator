@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Cras suscipit, ipsum nec ullamcorper facilisis.",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pellentesque iaculis congue. Duis et purus quis leo venenatis consequat id id est. Sed mattis felis nisl, quis mattis dui fringilla non. Integer luctus justo eu odio tristique, id eleifend arcu auctor. Mauris porttitor consequat ultrices. Vivamus elit massa, dictum in velit a, pellentesque vehicula quam. Nam id libero in eros iaculis ultrices vitae ac lectus. Integer mollis quam quis posuere consequat.",
+        "user_id": 1
+
+    },{
+        
+        "title": "Ultricies imperdiet nibh egestas ege.",
+        "body": "Nulla laoreet, ante a dignissim vehicula, tortor nisl sollicitudin ex, eget pretium sem mi vitae massa. Ut nec tellus nulla. Nunc lobortis nunc non velit rutrum, quis malesuada nunc interdum. Donec consequat sit amet felis nec finibus. Fusce fermentum nisl eu vulputate consectetur. Sed tempor massa in massa ullamcorper, a facilisis sem tincidunt. Nulla iaculis molestie eros at facilisis. Vivamus massa velit, ultrices non congue id, dictum congue est.",
+        "user_id": 1
+
+    
+    }
+
+
+
+]
