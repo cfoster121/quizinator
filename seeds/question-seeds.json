@@ -1,0 +1,33 @@
+[
+    {
+        "question_content": "What color is Picard's hair?",
+        "answer_A" : "Black",
+        "answer_B" : "Blonde",
+        "answer_C" : "He's bald",
+        "answer_D" : "Orange",
+        "answer_correct" : "answer_C",
+        "quiz_id": 1
+
+    },{
+        "question_content": "Was John Snow a Bastard?",
+        "answer_A" : "Yes",
+        "answer_B" : "No",
+        "answer_C" : "No",
+        "answer_D" : "No",
+        "answer_correct" : "answer_A",
+        "quiz_id": 2
+
+    },{
+        "question_content": "How many legs does a dog have? (usually)",
+        "answer_A" : "3",
+        "answer_B" : "4",
+        "answer_C" : "8",
+        "answer_D" : "1000",
+        "answer_correct" : "answer_B",
+        "quiz_id": 3
+
+    }
+
+
+
+]
