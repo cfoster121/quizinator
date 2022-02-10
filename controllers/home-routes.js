@@ -10,6 +10,10 @@ router.get("/:id", (req, res) => {
       {
         model: Question,
       },
+      {
+        model: User,
+        attributes: ["username"]
+      },
     ],
   })
   .then((dbQuizData) => {
@@ -30,4 +34,6 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 module.exports = router;
