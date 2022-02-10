@@ -1,17 +1,17 @@
 const router = require("express").Router();
 const { Question } = require("../../models");
 //get all the comments
-router.get("/", (req, res) => {
-  Question.findAll({
-  })
-    .then((dbQuestionData) => {
-      res.json(dbQuestionData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.get("/:quiz_id", (req, res) => {
+//   Question.findByPk(req.params.quiz_id,{
+//   })
+//     .then((dbQuestionData) => {
+//       res.json(dbQuestionData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.post("/", (req, res) => {
     //expects 
