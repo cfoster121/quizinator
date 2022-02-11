@@ -10,20 +10,12 @@
     <button id="delete-btn">Delete</button>
     {{/if}}
 </div>
-{{!-- Add Comment --}}
-{{!-- <div class="padding-20">
-    <form id="comment-form " class="padding-20">
-        <label for="comment-text">Leave A Comment</label>
-        <input class="padding-20" type="textarea" name="comment-text" id="comment-text">
-        <button class="padding-20" id="post-comment-btn">Post!</button>
-    </form>
-</div> --}}
-{{!-- Handle the comments --}}
-{{!-- {{#each quiz.comments as |aComment|}}
-{{> comment aComment}}
-{{/each}} --}}
-<link rel="stylesheet" href="/css/single-post.css">
-<script src="/js/single-quiz.js"></script>
+{{!-- Handle the Questions --}}
+{{#each quiz.questions as |question|}}
+{{question.question_content}}
+{{/each}}
+{{!-- <link rel="stylesheet" href="/css/single-post.css"> --}}
+{{!-- <script src="/js/single-quiz.js"></script> --}}
 {{#if currentUser}}
-<script src="/js/edit-delete-post.js"> </script>
+{{!-- <script src="/js/edit-delete-post.js"> </script> --}}
 {{/if}}
