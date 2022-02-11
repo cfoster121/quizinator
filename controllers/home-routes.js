@@ -51,6 +51,7 @@ router.get("/createquiz/question", (req, res) => {
 router.get("/dashboard", (req, res) => {
   //we need to get all quizes for user
   Quiz.findAll({
+    where: {user_id: req.session.userid},
       attributes: ["id", "title", "category", "user_id"],
   })
     .then((dbQuizData) => {
