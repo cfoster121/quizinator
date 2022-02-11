@@ -109,29 +109,25 @@ router.get("/category/:category", (req, res) => {
 });
 router.get("/viewquiz/:id", (req, res) => {
   //we need to get all posts
-  Quiz.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: ["id", "title", "category", "user_id"],
+  Quiz.findByPk (req.params.id,{
     include: [
       {
         model: User,
         as: "user",
         attributes: ["username"],
       },
-      // {
-      //   model: Comment,
-      //   as: "comments",
-      //   attributes: ["id", "comment_text", "user_id"],
-      //   include: [
-      //     {
-      //       model: User,
-      //       as: "user",
-      //       attributes: ["username"],
-      //     },
-      //   ],
-      // },
+      {
+        model: Question,
+        // as: "question",
+        // attributes: ["id", "comment_text", "user_id"],
+        // include: [
+        //   {
+        //     model: User,
+        //     as: "user",
+        //     attributes: ["username"],
+        //   },
+        // ],
+      },
     ],
   })
     .then((dbQuizData) => {
@@ -140,11 +136,11 @@ router.get("/viewquiz/:id", (req, res) => {
         res.status(404).json({ message: "No Quiz Available" });
         return;
       }
-      const Quiz = dbQuizData.get({ plain: true }); // serialize all the posts
+      const quiz = dbQuizData.get({ plain: true }); // serialize all the posts
       // console.log(post);
       const myQuiz = Quiz.user_id == req.session.user_id;
       res.render("single-Quiz", {
-        Quiz,
+        quiz,
         loggedIn: req.session.loggedIn,
         currentUser: myQuiz,
       });
