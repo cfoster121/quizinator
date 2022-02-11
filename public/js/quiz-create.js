@@ -16,7 +16,7 @@ async function quizFormHandler(event) {
 
         if (response.ok) {
             console.log(response, "Quiz created!");
-            document.location.replace("/");
+            document.location.replace("/createquiz/question");
         } else {
             alert(response.statusText);
         }
