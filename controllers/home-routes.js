@@ -5,14 +5,14 @@ const sequelize = require("../config/connection");
 router.get("/", (req, res) => {
   //we need to get all posts
   Quiz.findAll({
-    //   attributes: ["id", "title", "body", "user_id"],
-    //   include: [
-    //     {
-    //       model: User,
-    //       as: "user",
-    //       attributes: ["username"],
-    //     }
-    //   ],
+      attributes: ["id", "title", "category", "user_id"],
+      include: [
+        {
+          model: User,
+          as: "user",
+          attributes: ["username"],
+        }
+      ],
   })
     .then((dbQuizData) => {
       //serialize data
@@ -20,9 +20,10 @@ router.get("/", (req, res) => {
         res.status(404).json({ message: "No Quizes Available" });
         return;
       }
-      // const quiz = dbQuizData.map((post) => post.get({ plain: true })); // serialize all the posts
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
       // console.log(posts);
       res.render("home", {
+        quizzes: quizzes,
         loggedIn: req.session.loggedIn
       });
     })
@@ -47,6 +48,30 @@ router.get("/createquiz/question", (req, res) => {
   res.render("question-create", { loggedIn: req.session.loggedIn });
 });
 
+router.get("/dashboard", (req, res) => {
+  //we need to get all quizes for user
+  Quiz.findAll({
+    where: {user_id: req.session.userid},
+      attributes: ["id", "title", "category", "user_id"],
+  })
+    .then((dbQuizData) => {
+      //serialize data
+      if (!dbQuizData) {
+        res.status(404).json({ message: "No Quizes Available" });
+        return;
+      }
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
+      // console.log(posts);
+      res.render("dashboard", {
+        quizzes: quizzes,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.get("/:id", (req, res) => {
   //we need to get all posts
@@ -101,6 +126,49 @@ router.get("/category/:category", (req, res) => {
     //   console.log(quiz);
     // //   res.render("home", { quiz, loggedIn: req.session.loggedIn });
     // })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+router.get("/viewquiz/:id", (req, res) => {
+  //we need to get all posts
+  Quiz.findByPk (req.params.id,{
+    include: [
+      {
+        model: User,
+        as: "user",
+        attributes: ["username"],
+      },
+      {
+        model: Question,
+        // as: "question",
+        // attributes: ["id", "comment_text", "user_id"],
+        // include: [
+        //   {
+        //     model: User,
+        //     as: "user",
+        //     attributes: ["username"],
+        //   },
+        // ],
+      },
+    ],
+  })
+    .then((dbQuizData) => {
+      //serialize data
+      if (!dbQuizData) {
+        res.status(404).json({ message: "No Quiz Available" });
+        return;
+      }
+      const quiz = dbQuizData.get({ plain: true }); // serialize all the posts
+      console.log(quiz);
+      const myQuiz = Quiz.user_id == req.session.user_id;
+      res.render("single-Quiz", {
+        quiz,
+        loggedIn: req.session.loggedIn,
+        currentUser: myQuiz,
+      });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);

@@ -1,0 +1,25 @@
+<div class="card single-quiz-padding">
+    <h1 id="quiz-title" class="quiz-header">{{quiz.title}} </h1>
+    <h4>Posted by {{quiz.user.username}}</h4>
+    <div class="container">
+        <p id="quiz-body" class="quiz-text quiz-text-padding">{{quiz.body}}</p>
+    </div>
+    {{!-- If this is my post i can edit and delete it --}}
+    {{#if currentUser}}
+    <button id="edit-btn">Edit</button>
+    <button id="delete-btn">Delete</button>
+    {{/if}}
+</div>
+{{!-- Handle the Questions --}}
+{{#each quiz.questions as |question|}}
+<h2>{{question.question_content}}</h2>
+<button>{{question.answer_a}}</button>
+<button>{{question.answer_b}}</button>
+<button>{{question.answer_c}}</button>
+<button>{{question.answer_d}}</button>
+<p>-------</p>
+{{/each}}
+{{!-- <link rel="stylesheet" href="/css/single-post.css"> --}}
+{{#if currentUser}}
+{{!-- <script src="/js/edit-delete-post.js"> </script> --}}
+{{/if}}

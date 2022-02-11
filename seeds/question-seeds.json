@@ -27,7 +27,7 @@
         "quiz_id": 3
 
     },
-    {"question_content": "Was John Snow a Bastard?",
+    {"question_content": "Was John Snow a Bastard twice?",
         "answer_a" : "Yes",
         "answer_b" : "No",
         "answer_c" : "No",
