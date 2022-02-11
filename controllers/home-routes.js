@@ -42,6 +42,11 @@ router.get("/createquiz", (req, res) => {
   res.render("quiz-create", { loggedIn: req.session.loggedIn });
 });
 
+router.get("/createquiz/question", (req, res) => {
+  console.log("Create a new question", req.session.loggedIn);
+  res.render("question-create", { loggedIn: req.session.loggedIn });
+});
+
 
 router.get("/:id", (req, res) => {
   //we need to get all posts
