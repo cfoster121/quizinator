@@ -109,7 +109,7 @@ router.get("/category/:category", (req, res) => {
 });
 router.get("/viewquiz/:id", (req, res) => {
   //we need to get all posts
-  Post.findOne({
+  Quiz.findOne({
     where: {
       id: req.params.id,
     },
