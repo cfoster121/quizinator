@@ -1,0 +1,5 @@
+<h1 class="padding-20">My Quizzes</h1>
+<p><a class="link" href="/createquiz">New Quiz</a></p>
+{{#each quizzes as |quiz| }}
+{{>quiz quiz}}
+{{/each}}

@@ -48,6 +48,29 @@ router.get("/createquiz/question", (req, res) => {
   res.render("question-create", { loggedIn: req.session.loggedIn });
 });
 
+router.get("/dashboard", (req, res) => {
+  //we need to get all quizes for user
+  Quiz.findAll({
+      attributes: ["id", "title", "category", "user_id"],
+  })
+    .then((dbQuizData) => {
+      //serialize data
+      if (!dbQuizData) {
+        res.status(404).json({ message: "No Quizes Available" });
+        return;
+      }
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
+      // console.log(posts);
+      res.render("dashboard", {
+        quizzes: quizzes,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.get("/:id", (req, res) => {
   //we need to get all posts
