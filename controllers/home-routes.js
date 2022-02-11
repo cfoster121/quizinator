@@ -5,14 +5,14 @@ const sequelize = require("../config/connection");
 router.get("/", (req, res) => {
   //we need to get all posts
   Quiz.findAll({
-    //   attributes: ["id", "title", "body", "user_id"],
-    //   include: [
-    //     {
-    //       model: User,
-    //       as: "user",
-    //       attributes: ["username"],
-    //     }
-    //   ],
+      // attributes: ["id", "title", "category", "user_id"],
+      // include: [
+      //   {
+      //     model: User,
+      //     as: "user",
+      //     attributes: ["username"],
+      //   }
+      // ],
   })
     .then((dbQuizData) => {
       //serialize data
@@ -20,9 +20,10 @@ router.get("/", (req, res) => {
         res.status(404).json({ message: "No Quizes Available" });
         return;
       }
-      // const quiz = dbQuizData.map((post) => post.get({ plain: true })); // serialize all the posts
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
       // console.log(posts);
       res.render("home", {
+        quizzes: quizzes,
         loggedIn: req.session.loggedIn
       });
     })
