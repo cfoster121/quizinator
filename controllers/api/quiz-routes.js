@@ -4,7 +4,7 @@ const { Quiz } = require("../../models");
 
 
 router.get("/:quiz_id", (req, res) => {
-  Quiz.findByPk(req.params.quiz_id,{
+  Quiz.findByPk(req.params.quiz_id, {
   })
     .then((dbQuizData) => {
       res.json(dbQuizData);
@@ -16,20 +16,19 @@ router.get("/:quiz_id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    //expects 
-    Quiz.create({
-        title: req.body.title,
-        category: req.body.category,
-        user_id: req.body.user_id
-    //  user_id: req.session.user_id,
+  //expects 
+  Quiz.create({
+    title: req.body.title,
+    category: req.body.category,
+    user_id: req.session.userid
+  })
+    .then((dbQuizData) => {
+      res.json(dbQuizData);
     })
-      .then((dbQuizData) => {
-        res.json(dbQuizData);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err); //REST api needs status
-      });
-  });
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err); //REST api needs status
+    });
+});
 
 module.exports = router;
