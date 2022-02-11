@@ -12,10 +12,14 @@
 </div>
 {{!-- Handle the Questions --}}
 {{#each quiz.questions as |question|}}
-{{question.question_content}}
+<h2>{{question.question_content}}</h2>
+<button>{{question.answer_a}}</button>
+<button>{{question.answer_b}}</button>
+<button>{{question.answer_c}}</button>
+<button>{{question.answer_d}}</button>
+<p>-------</p>
 {{/each}}
 {{!-- <link rel="stylesheet" href="/css/single-post.css"> --}}
-{{!-- <script src="/js/single-quiz.js"></script> --}}
 {{#if currentUser}}
 {{!-- <script src="/js/edit-delete-post.js"> </script> --}}
 {{/if}}
