@@ -25,11 +25,11 @@ Question.init(
     },
     answer_c: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     answer_d: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     answer_correct: {
         type: DataTypes.STRING,
