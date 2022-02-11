@@ -22,7 +22,8 @@ router.get("/", (req, res) => {
         }
         // const quiz = dbQuizData.map((post) => post.get({ plain: true })); // serialize all the posts
         // console.log(posts);
-        res.render("home");
+        res.render("home", { 
+          loggedIn: req.session.loggedIn });
       })
       .catch((err) => {
         console.log(err);
