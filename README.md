@@ -1,8 +1,6 @@
 # quizinator
-# Sound Lane
 
-
-
+A quiz creation and website to take multiple quizzes! we wanted a website to be able to find quizzes based off category and number of times played. A site able to take Quizzes and save your highscore against others. where you can log in and make challengeing quizzes for others on your favorite topics.
 
 ## Built With
 
@@ -22,9 +20,9 @@
 - [Link to LinkedIn](https://www.linkedin.com/in/garrett-corbin-7a7777227/)
 
 * *Courtney Foster** 
-- [Link to Portfolio Site]()
-- [Link to Github]()
-- [Link to LinkedIn]()
+- [Link to Portfolio Site](https://cfoster121.github.io/portfolio/)
+- [Link to Github](https://github.com/cfoster121)
+- [Link to LinkedIn](https://www.linkedin.com/in/courtney-foster-0b364575/)
 
 * **Samuel Lutz** 
 - [Link to Github](https://github.com/samuellutz)
