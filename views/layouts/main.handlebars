@@ -10,29 +10,27 @@
     <title>Quizinator</title>
 </head>
 
-<body>
-    <header>
-        <h1>Quizinator 9000!</h1>
-    </header>
-    <nav>
-        <a href="/">Home</a>
+
+{{!-- Top NavBar --}}
+<div class="container flex flex-wrap justify-between items-center mx-auto">
+{{!-- Page Title --}}
+    <span
+        class="self-center text-2xl font-semibold">Quizinator
+        9000</span>
+    <div class="flex space-x-4">
+{{!-- Home button --}}
+        <a href="/" class="bg-gray-900 text-white p-3 rounded-md text-md">Home</a>
+{{!-- Dashboard button --}}
+        <a href="/dashboard" class="bg-gray-900 text-white p-3 rounded-md text-md">Dashboard</a>
+{{!-- If logged in show logout button --}}
         {{#if loggedIn}}
-        <a class="link" href="/dashboard">Dashboard</a>
-        <button id='logout-btn' class='btn-no-style'>Logout</button>
+        <a href="#" id='logout-btn' class="bg-gray-900 text-white p-3 rounded-md text-md">Logout</a>
+{{!-- If logged out show login button --}}
         {{else}}
-        <a href="/login">Login</a>
+        <a href="/login" class="bg-gray-900 text-white p-3 rounded-md text-md">Login</a>
         {{/if}}
-    </nav>
-    <main>
-        {{{body}}}
-    </main>
-    {{#if loggedIn}}
-    <script src='/js/logout.js'></script>
-    {{/if}}
-</body>
-
-</html>
-
+    </div>
+</div>
 
 {{!-- Side nav bar for categories--}}
 <div class="w-60 h-full shadow-md bg-white px-1 absolute">
@@ -62,6 +60,19 @@
                 href="#!">Category 5</a>
         </li>
 
-        
+
     </ul>
 </div>
+
+<body>
+    <header>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+    {{#if loggedIn}}
+    <script src='/js/logout.js'></script>
+    {{/if}}
+</body>
+
+</html>
