@@ -13,12 +13,14 @@
 
 {{!-- Handle the Questions --}}
 {{#each quiz.questions as |question|}}
-<div class="text-center">
+
+<div class="text-center question">
+    <p id="correct"></p>
 <h2 class="text-center text-xl py-5">{{question.question_content}}</h2>
-<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_a}}</button>
-<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_b}}</button>
-<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_c}}</button>
-<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_d}}</button>
+<button id="answer_a" class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2 choice" data-correct={{question.answer_correct}}>{{question.answer_a}}</button>
+<button id="answer_b" class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2 choice" data-correct={{question.answer_correct}}>{{question.answer_b}}</button>
+<button id="answer_c" class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2 choice" data-correct={{question.answer_correct}}>{{question.answer_c}}</button>
+<button id="answer_d" class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2 choice" data-correct={{question.answer_correct}}>{{question.answer_d}}</button>
 </div>
 {{/each}}
 
@@ -26,3 +28,5 @@
 {{#if currentUser}}
 {{!-- <script src="/js/edit-delete-post.js"> </script> --}}
 {{/if}}
+
+<script src="/js/quiz.js"></script>
