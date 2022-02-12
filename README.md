@@ -6,7 +6,16 @@ A quiz creation and website to take multiple quizzes! we wanted a website to be 
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-*
+* [jawsDB](https://www.jawsdb.com/)
+* [MySQL](https://www.mysql.com/)
+* [Express.js](https://expressjs.com/)
+* [Node.js](https://nodejs.org/en/)
+* [Heroku](heroku.com)
+* [Bcrypt](https://en.wikipedia.org/wiki/Bcrypt)
+* [Dotenv](https://github.com/motdotla/dotenv)
+* [Sequelize](https://sequelize.org/)
+
+
 ## Deployed Link
 
 * [See Live Site](https://stark-scrubland-48398.herokuapp.com/)
