@@ -25,7 +25,7 @@ async function questionFormHandler(event) {
         });
 
         if (response.ok) {
-            console.log(response, "Questions created!");
+            console.log(response.blob(), "Questions created!");
             document.location.replace("/");
         } else {
             alert(response.statusText);

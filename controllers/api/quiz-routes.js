@@ -23,7 +23,10 @@ router.post("/", (req, res) => {
     user_id: req.session.userid
   })
     .then((dbQuizData) => {
+      console.log(dbQuizData);
+      // res.body = dbQuizData;
       res.json(dbQuizData);
+      
     })
     .catch((err) => {
       console.log(err);
