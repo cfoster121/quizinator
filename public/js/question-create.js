@@ -33,7 +33,22 @@ async function questionFormHandler(event) {
     }
 
 }
+const question = document.getElementById("single-question");
+const questionBlock = document.getElementById("question-block")
+function addQuestion(event) {
+    console.log(event);
+    
+    const newQuestion = question.cloneNode(true);
+    // question.innerHTML = "new question";
+    console.log(newQuestion);
+    questionBlock.appendChild(newQuestion);
+}
 
 document
   .querySelector("#submit-btn")
   .addEventListener("click", questionFormHandler);
+
+
+document
+  .querySelector("#add-question")
+  .addEventListener("click", addQuestion);
