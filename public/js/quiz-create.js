@@ -9,14 +9,16 @@ async function quizFormHandler(event) {
             body: JSON.stringify({
                 title,
                 category
-                // user_id
+                
             }),
             headers: { "Content-Type": "application/json" },
         });
 
         if (response.ok) {
-            console.log(response, "Quiz created!");
-            document.location.replace("/createquiz/question");
+            const data = await response.json();
+            // console.log(data.id);
+            document.location.replace(`/createquiz/question/${data.id}`);
+
         } else {
             alert(response.statusText);
         }
