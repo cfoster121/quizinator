@@ -11,6 +11,7 @@
 </head>
 
 
+
 {{!-- Top NavBar --}}
 <div class="container flex flex-wrap justify-between items-center mx-auto">
 {{!-- Page Title --}}
@@ -31,6 +32,11 @@
         {{/if}}
     </div>
 </div>
+
+    <main class="container flex items-center">
+        {{{body}}}
+    </main>
+
 
 {{!-- Side nav bar for categories--}}
 <div class="w-60 h-full shadow-md bg-white px-1 absolute">
@@ -65,11 +71,6 @@
 </div>
 
 <body>
-    <header>
-    </header>
-    <main>
-        {{{body}}}
-    </main>
     {{#if loggedIn}}
     <script src='/js/logout.js'></script>
     {{/if}}
