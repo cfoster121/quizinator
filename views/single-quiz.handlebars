@@ -1,24 +1,27 @@
-<div class="card single-quiz-padding">
-    <h1 id="quiz-title" class="quiz-header">{{quiz.title}} </h1>
-    <h4>Posted by {{quiz.user.username}}</h4>
+<div class="card single-quiz-padding text-center">
+    <h1 id="quiz-title" class="quiz-header text-4xl">{{quiz.title}} </h1>
+    <h4 class="font-bold">Posted by {{quiz.user.username}}</h4>
     <div class="container">
         <p id="quiz-body" class="quiz-text quiz-text-padding">{{quiz.body}}</p>
     </div>
     {{!-- If this is my post i can edit and delete it --}}
     {{#if currentUser}}
-    <button id="edit-btn">Edit</button>
-    <button id="delete-btn">Delete</button>
+    <button id="edit-btn" class="bg-slate-300 p-4 m-5">Edit</button>
+    <button id="delete-btn" class="bg-slate-300 p-4 m-5">Delete</button>
     {{/if}}
 </div>
+
 {{!-- Handle the Questions --}}
 {{#each quiz.questions as |question|}}
-<h2>{{question.question_content}}</h2>
-<button>{{question.answer_a}}</button>
-<button>{{question.answer_b}}</button>
-<button>{{question.answer_c}}</button>
-<button>{{question.answer_d}}</button>
-<p>-------</p>
+<div class="text-center">
+<h2 class="text-center text-xl py-5">{{question.question_content}}</h2>
+<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_a}}</button>
+<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_b}}</button>
+<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_c}}</button>
+<button class="w-1/2 bg-slate-100 hover:bg-slate-300 mb-2">{{question.answer_d}}</button>
+</div>
 {{/each}}
+
 {{!-- <link rel="stylesheet" href="/css/single-post.css"> --}}
 {{#if currentUser}}
 {{!-- <script src="/js/edit-delete-post.js"> </script> --}}
