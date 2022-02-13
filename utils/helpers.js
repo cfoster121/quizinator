@@ -7,4 +7,7 @@ module.exports = {
       new Date(date).getFullYear()
     }`;
   },
+  get_length: (obj) => {
+    return obj.length;
+  }
 };

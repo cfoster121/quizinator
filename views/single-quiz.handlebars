@@ -24,8 +24,13 @@
 </div>
 {{/each}}
 <br>
-<button id="show_answers" class="w-1/2 bg-slate-100 hover:bg-slate-300">Show Answers</button>
+
+<input class="form-input" type="hidden" id="quiz-id" value={{quiz.id}}></input>
+<input class="form-input" type="hidden" id="user-id" value={{quiz.user_id}}></input>
+
 <p id="results"></p>
+<button id="show_answers" class="w-1/2 bg-slate-100 hover:bg-slate-300">Show Answers</button>
+
 
 {{!-- <link rel="stylesheet" href="/css/single-post.css"> --}}
 {{#if currentUser}}
