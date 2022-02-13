@@ -1,5 +1,6 @@
 const question = document.getElementsByClassName("question");
 const showAnswers = document.getElementById("show_answers");
+const results = document.getElementById("results");
 
 for (let i = 0; i < question.length; i++) {
 
@@ -37,7 +38,8 @@ for (let i = 0; i < question.length; i++) {
 
 
 showAnswers.addEventListener("click", function(event) {
-    
+    let correctAnswers = 0;
+    let incorrectAnswers = 0;
     console.log(event);
     for (let i = 0; i < question.length; i++) {
 
@@ -53,15 +55,17 @@ showAnswers.addEventListener("click", function(event) {
             choice.classList.remove("hover:bg-slate-300");
             console.log(choice);
             if (choice.classList.contains("selected") && question[i].classList.contains("correct")) {
-                choice.classList.add("bg-lime-500"); //will be unneccesary
+                
+                correctAnswers++;
             }
             if (choice.classList.contains("selected") && question[i].classList.contains("incorrect")) {
                 
                 choice.classList.add("bg-red-500");
-             
+                incorrectAnswers++;
                 
             }
         }
 
     }
+    results.textContent = `You Got ${correctAnswers}/${question.length} answers correct!`;
 });
