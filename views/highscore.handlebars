@@ -9,11 +9,8 @@
 <hr>
 
 {{#each highscores as |highscore|}}
-    
     <p class="text-xl text-center my-2">Name: {{highscore.user.username}}</p>
     <p class="text-lg text-center mt-2 mb-4">Score: {{highscore.score}}/{{get_length highscore.quiz.questions}}</p>
-    <hr>
-
 {{/each}}
 
 </div>
