@@ -9,6 +9,24 @@
         "quiz_id": 1
 
     },{
+        "question_content": "What species is Worf?",
+        "answer_a" : "Klingon",
+        "answer_b" : "Vulcan",
+        "answer_c" : "Romulan",
+        "answer_d" : "Ferengi",
+        "answer_correct" : "answer_a",
+        "quiz_id": 1
+
+    },{
+        "question_content": "Where is Deep Space 9 located?",
+        "answer_a" : "Delta Quadrant",
+        "answer_b" : "near Bajor",
+        "answer_c" : "Romulan Neutral Zone",
+        "answer_d" : "Earth",
+        "answer_correct" : "answer_b",
+        "quiz_id": 1
+
+    },{
         "question_content": "Was John Snow a Bastard?",
         "answer_a" : "Yes",
         "answer_b" : "No",
