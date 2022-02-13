@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Quiz, Question } = require("../models");
+const { User, Quiz, Question, HighScore } = require("../models");
 const sequelize = require("../config/connection");
 //home route server homepage
 router.get("/", (req, res) => {
@@ -38,6 +38,8 @@ router.get("/login", (req, res) => {
   res.render("login", { loggedIn: req.session.loggedIn });
 });
 
+
+
 router.get("/createquiz", (req, res) => {
   console.log("Create a new quiz", req.session.loggedIn);
   res.render("quiz-create", { loggedIn: req.session.loggedIn });
@@ -50,6 +52,44 @@ router.get("/createquiz/question/:id", (req, res) => {
     quiz_id: req.params.id
   });
 });
+
+
+router.get("/highscore/:id", (req, res) => {
+  HighScore.findAll({
+    where: {
+      quiz_id: req.params.id
+    },
+    limit: 10,
+    order: [['score', 'DESC']],
+    include: [
+      {
+        model: User,
+      },{
+        model: Quiz,
+        include: [Question]
+      }
+    ]
+  })
+    .then((dbHighScoreData) => {
+      if (!dbHighScoreData) {
+        res.status(404).json({ message: "No High Scores Available" });
+        return;
+      }
+      const highscores = dbHighScoreData.map((HighScore) => HighScore.get({ plain: true }));
+      console.log(highscores);
+      res.render("highscore", { 
+        highscores: highscores,
+        loggedIn: req.session.loggedIn 
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+  
+});
+
+
 
 router.get("/dashboard", (req, res) => {
   //we need to get all quizes for user

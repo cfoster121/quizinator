@@ -1,6 +1,8 @@
 const question = document.getElementsByClassName("question");
 const showAnswers = document.getElementById("show_answers");
 const results = document.getElementById("results");
+const user_id = document.querySelector("#user-id").value;
+const quiz_id = document.querySelector("#quiz-id").value;
 
 for (let i = 0; i < question.length; i++) {
 
@@ -37,15 +39,13 @@ for (let i = 0; i < question.length; i++) {
 }
 async function showScore(score) {
 
-    results.textContent = `You Got ${score}/${question.length} answers correct!`;
-    const user_id = document.querySelector("#user-id").value
-    const quiz_id = document.querySelector("#quiz-id").value
-    const response = await fetch("/api/highscore/", {
+    results.innerHTML = `You Got ${score}/${question.length} answers correct!`;
+    const response = await fetch(`/api/highscore/`, {
         method: "post",
         body: JSON.stringify({
             score,
             quiz_id,
-            user_id
+            user_id,
             
         }),
         headers: { "Content-Type": "application/json" },
@@ -54,7 +54,7 @@ async function showScore(score) {
     if (response.ok) {
         const data = await response.json();
         console.log(response);
-        // document.location.replace(`/createquiz/question/${data.id}`);
+        // document.location.replace(`/highscore/${quiz_id}`);
 
     } else {
         alert(response.statusText);
@@ -64,34 +64,38 @@ async function showScore(score) {
 showAnswers.addEventListener("click", function(event) {
     event.preventDefault();
     let correctAnswers = 0;
-    let incorrectAnswers = 0;
     console.log(event);
-    for (let i = 0; i < question.length; i++) {
+    if (this.textContent === "High Scores") {
+        document.location.replace(`/highscore/${quiz_id}`);
+    } else {     
+        for (let i = 0; i < question.length; i++) {
 
-        question[i].removeEventListener("click", choiceListener);
+            question[i].removeEventListener("click", choiceListener);
 
-        const choices = question[i].getElementsByClassName("choice");
-        
-        for (let choice of choices) {
-            if (choice.id === choice.dataset.correct) {
-                choice.classList.add("bg-lime-500");
-            }
+            const choices = question[i].getElementsByClassName("choice");
             
-            choice.classList.remove("hover:bg-slate-300");
-            console.log(choice);
-            if (choice.classList.contains("selected") && question[i].classList.contains("correct")) {
+            for (let choice of choices) {
+                if (choice.id === choice.dataset.correct) {
+                    choice.classList.add("bg-lime-500");
+                }
                 
-                correctAnswers++;
+                choice.classList.remove("hover:bg-slate-300");
+                console.log(choice);
+                if (choice.classList.contains("selected") && question[i].classList.contains("correct")) {
+                    
+                    correctAnswers++;
+                }
+                if (choice.classList.contains("selected") && question[i].classList.contains("incorrect")) {
+                    
+                    choice.classList.add("bg-red-500");
+                
+                    
+                }
             }
-            if (choice.classList.contains("selected") && question[i].classList.contains("incorrect")) {
-                
-                choice.classList.add("bg-red-500");
-                incorrectAnswers++;
-                
-            }
-        }
 
+        }
     }
     showScore(correctAnswers);
+    this.textContent = "High Scores";
     // results.textContent = `You Got ${correctAnswers}/${question.length} answers correct!`;
 });
