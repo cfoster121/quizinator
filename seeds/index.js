@@ -5,6 +5,8 @@ const Quiz = require('../models/Quiz');
 const quizData = require('./quiz-seeds.json');
 const User = require('../models/User');
 const userData = require('./user-seeds.json');
+const HighScore = require('../models/HighScore');
+const highScoreData = require('./highScore-seeds.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -21,6 +23,11 @@ const seedDatabase = async () => {
 
 
   await Question.bulkCreate(questionData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  await HighScore.bulkCreate(highScoreData, {
     individualHooks: true,
     returning: true,
   });
