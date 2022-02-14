@@ -33,6 +33,40 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/bycategory/:category", (req, res) => {
+  //we need to get all posts
+  Quiz.findAll({
+      attributes: ["id", "title", "category", "user_id"],
+      where: {
+        category: req.params.category
+      },
+      include: [
+        {
+          model: User,
+          as: "user",
+          attributes: ["username"],
+        }
+      ],
+  })
+    .then((dbQuizData) => {
+      //serialize data
+      if (!dbQuizData) {
+        res.status(404).json({ message: "No Quizes Available" });
+        return;
+      }
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
+      // console.log(posts);
+      res.render("home", {
+        quizzes: quizzes,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.get("/login", (req, res) => {
   console.log("Is logged in?", req.session.loggedIn);
   res.render("login", { loggedIn: req.session.loggedIn });
