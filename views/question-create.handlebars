@@ -6,31 +6,31 @@
         <div class="mb-4">
 
 <div>
-<div class="single-question text-2xl text-center font-semibold mb-6 mt-10" id="single-question">Create questions</div>
+<div class="single-question text-2xl text-center mb-2 mt-10">Create Questions</div>
 
 {{!-- Quiz title and category --}}
 {{!-- <form id="new-question"> --}}
 
-
 {{!-- <label for="quiz-id">Quiz ID:</label> --}}
+<div class="m-8">
 <input class="form-input" type="hidden" id="quiz-id" value={{quiz_id}}></input>
 
 <label for="question_content">Question:</label>
-<input class="form-input" type="text" id="question-content"></input>
+<input class="rounded text-gray-700" type="text" id="question-content"></input>
 
 <label for="answer-a">Answer A:</label>
-<input class="form-input" type="text" id="answer-a"></input>
+<input class="rounded text-gray-700" type="text" id="answer-a"></input>
 
 <label for="answer-b">Answer B:</label>
-<input class="form-input" type="text" id="answer-b"></input>
+<input class="rounded text-gray-700" type="text" id="answer-b"></input>
 
 <label for="answer-c">Answer C:</label>
-<input class="form-input" type="text" id="answer-c"></input>
+<input class="rounded text-gray-700" type="text" id="answer-c"></input>
 
 <label for="answer-d">Answer D:</label>
-<input class="form-input" type="text" id="answer-d"></input>
+<input class="rounded text-gray-700" type="text" id="answer-d"></input>
 
-
+<div class="mt-6">
 <label for="answer_correct">Correct Answer:</label>
 <select id="answer-correct">
   <option value="answer_a">A</option>
@@ -38,11 +38,11 @@
   <option value="answer_c">C</option>
   <option value="answer_d">D</option>
 </select>
+</div>
 {{!-- <input class="form-input" type="text" id="answer-correct"></input> --}}
 
 
-
-
+</div>
 {{!-- </form> --}}
 </div>
 </div>
