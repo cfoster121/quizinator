@@ -33,7 +33,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/:category", (req, res) => {
+router.get("/bycategory/:category", (req, res) => {
   //we need to get all posts
   Quiz.findAll({
       attributes: ["id", "title", "category", "user_id"],
