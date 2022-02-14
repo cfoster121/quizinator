@@ -63,6 +63,8 @@ async function showScore(score) {
 
 showAnswers.addEventListener("click", function(event) {
     event.preventDefault();
+
+  
     let correctAnswers = 0;
     console.log(event);
     if (this.textContent === "High Scores") {
@@ -70,7 +72,10 @@ showAnswers.addEventListener("click", function(event) {
     } else {     
         for (let i = 0; i < question.length; i++) {
 
-            question[i].removeEventListener("click", choiceListener);
+            //removes event listeners by cloning the question
+            const questionClone = question[i].cloneNode(true);
+            question[i].parentNode.replaceChild(questionClone, question[i]);
+
 
             const choices = question[i].getElementsByClassName("choice");
             
@@ -80,7 +85,7 @@ showAnswers.addEventListener("click", function(event) {
                 }
                 
                 choice.classList.remove("hover:bg-slate-300");
-                console.log(choice);
+               
                 if (choice.classList.contains("selected") && question[i].classList.contains("correct")) {
                     
                     correctAnswers++;
@@ -97,5 +102,5 @@ showAnswers.addEventListener("click", function(event) {
     }
     showScore(correctAnswers);
     this.textContent = "High Scores";
-    // results.textContent = `You Got ${correctAnswers}/${question.length} answers correct!`;
+
 });
