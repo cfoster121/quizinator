@@ -18,6 +18,7 @@ app.set('view engine', 'handlebars');
 
 const sess = {
   secret: 'secret stuff',
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

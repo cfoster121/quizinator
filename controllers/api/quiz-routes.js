@@ -34,4 +34,22 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+  Quiz.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbQuizData) => {
+      if (!dbQuizData) {
+        res.status(404).json({ message: "No Post found with this id" });
+        return;
+      }
+      res.json(dbQuizData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 module.exports = router;
