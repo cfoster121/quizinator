@@ -37,6 +37,7 @@ async function questionFormHandler(event) {
 const question = document.getElementById("single-question");
 const questionBlock = document.getElementById("question-block")
 function addQuestion(event) {
+    event.preventDefault();
     console.log(event);
     
     const newQuestion = question.cloneNode(true);
