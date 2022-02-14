@@ -240,7 +240,7 @@ router.get("/viewquiz/:id", (req, res) => {
       const quiz = dbQuizData.get({ plain: true }); // serialize all the posts
       console.log(quiz);
       const myQuiz = Quiz.user_id == req.session.user_id;
-      res.render("single-Quiz", {
+      res.render("single-quiz", {
         quiz,
         loggedIn: req.session.loggedIn,
         currentUser: myQuiz,
