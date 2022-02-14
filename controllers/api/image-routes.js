@@ -5,7 +5,7 @@ const Resize = require('./Resize');
 const path = require('path');
 
 router.post('/', upload.single('image'), async function (req, res) {
-    const imagePath = path.join(__dirname, '/');
+    const imagePath = path.join(__dirname, '../../public/images/');
     const fileUpload = new Resize(imagePath);
     console.log(req.file);
     if (!req.file) {

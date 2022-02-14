@@ -20,7 +20,7 @@ class Resize {
     return filename;
   }
   static filename() {
-    return `image.png`;
+    return `${uuid.v4()}.png`;
   }
   filepath(filename) {
     return path.resolve(`${this.folder}/${filename}`)
