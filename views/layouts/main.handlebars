@@ -23,12 +23,13 @@
             <button>
             <a href="/" class="bg-transparent hover:bg-slate-100/50 text-md px-4 py-2 rounded-md">Home</a>
             </button>
-            {{!-- Dashboard button --}}
+           
+            {{!-- If logged in show logout button --}}
+            {{#if loggedIn}}
+             {{!-- Dashboard button --}}
             <button>
             <a href="/dashboard" class="bg-transparent hover:bg-slate-100/50 text-md px-4 py-2 rounded-md">Dashboard</a>
             </button>
-            {{!-- If logged in show logout button --}}
-            {{#if loggedIn}}
             <button>
             <a href="#" id='logout-btn' class="bg-transparent hover:bg-slate-100/50 text-md px-4 py-2 rounded-md">Logout</a>
             </button>
@@ -67,11 +68,11 @@
             </li>
             <li class="relative">
                 <a class="flex items-center text-md p-6 h-10 rounded hover:bg-[#438ce6] transition duration-400 ease-in-out"
-                    href="#!">Category 4</a>
+                    href="#!">Geography</a>
             </li>
             <li class="relative">
                 <a class="flex items-center text-md p-6 h-10 rounded hover:bg-[#438ce6] transition duration-400 ease-in-out"
-                    href="#!">Category 5</a>
+                    href="#!">History</a>
             </li>
         </ul>
     </div>
