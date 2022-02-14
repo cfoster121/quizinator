@@ -8,7 +8,7 @@
         <p id="quiz-body" class="quiz-text quiz-text-padding">{{quiz.body}}</p>
     </div>
     {{!-- If this is my post i can edit and delete it --}}
-    {{#if currentUser}}
+    {{#if loggedIn}}
     <button id="delete-btn" class="bg-rose-200 hover:bg-rose-400 px-3 py-1 rounded-md mb-2 border-2 border-rose-400/50 shadow">Delete</button>
     {{/if}}
 </div>
@@ -37,7 +37,7 @@
 
 {{!-- <link rel="stylesheet" href="/css/single-post.css"> --}}
 {{#if currentUser}}
-<script src="/js/edit-delete-post.js"> </script>
+<script src="/js/delete-post.js"> </script>
 {{/if}}
 
 <script src="/js/quiz.js"></script>

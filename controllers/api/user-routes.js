@@ -80,7 +80,37 @@ router.post('/logout', (req, res) => {
   }
 });
 
-
+router.get("/:id", (req, res) => {
+  User.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "username", "email", "password"], //remove password in the futrue
+    include: [
+      {
+        model: Post,
+        as: "posts",
+        attributes: ["id", "title", "body"],
+      },
+      {
+        model: Comment,
+        as: "comments",
+        attributes: ["id", "comment_text", "post_id"],
+      },
+    ],
+  }) //include the posts and comments of this user
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No User found with this id" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 

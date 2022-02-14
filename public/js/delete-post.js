@@ -9,7 +9,7 @@ async function editPostHandler(event) {
   }
   
   //handle deleting the post
-  async function deletePostHandler(event) {
+  async function deleteQuizHandler(event) {
     event.preventDefault();
     //make request to post route delete with the current post id in nav bar
     const quiz_id = window.location.toString().split("/")[
@@ -33,4 +33,4 @@ async function editPostHandler(event) {
   //delete post
   document
     .querySelector("#delete-btn")
-    .addEventListener("click", deletePostHandler);
+    .addEventListener("click", deleteQuizHandler);
