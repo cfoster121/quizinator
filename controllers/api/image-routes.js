@@ -1,6 +1,6 @@
 
 const router = require("express").Router();
-const upload = require('./uploadMiddleware');
+const upload = require('../../utils/uploadMiddleware');
 const Resize = require('./Resize');
 const path = require('path');
 
