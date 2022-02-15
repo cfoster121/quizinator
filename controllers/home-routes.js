@@ -79,7 +79,11 @@ router.get("/createquiz", (req, res) => {
   res.render("quiz-create", { loggedIn: req.session.loggedIn });
 });
 
-//If user is logged in, render page to create new questions when user is creating a new quiz
+router.get("/uploadimage", (req, res) => {
+  console.log("Upload Image", req.session.loggedIn);
+  res.render("image", { loggedIn: req.session.loggedIn });
+});
+
 router.get("/createquiz/question/:id", (req, res) => {
   console.log("Create a new question", req.session.loggedIn);
   res.render("question-create", { 

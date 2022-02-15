@@ -13,9 +13,13 @@ async function quizFormHandler(event) {
             }),
             headers: { "Content-Type": "application/json" },
         });
+      
 
         if (response.ok) {
+
             const data = await response.json();
+            imageUploadHandler(data.id);
+            // console.log(data.id);
             document.location.replace(`/createquiz/question/${data.id}`);
         } else {
             alert(response.statusText);
@@ -23,7 +27,40 @@ async function quizFormHandler(event) {
     }
 }
 
-//Run function on click of submit button
+
+async function imageUploadHandler(id) {
+    // event.preventDefault();
+    const image = document.querySelector("#image[type='file']");
+    
+    let formData = new FormData();
+    formData.append("image", image.files[0]);
+    console.log("-------", image.files.length);
+
+    if (image.files.length) {
+        const response = await fetch(`/api/image/${id}`, {
+            method: "post",
+            body: formData,
+        });
+      
+
+        if (response.ok) {
+            const data = await response.json();
+   
+
+        } else {
+            alert(response.statusText);
+        }
+    }
+
+}
+
 document
-    .querySelector("#submit-btn")
-    .addEventListener("click", quizFormHandler);
+  .querySelector("#submit-btn")
+  .addEventListener("click", quizFormHandler);
+
+// document
+//   .querySelector("#submit-btn")
+//   .addEventListener("click", imageUploadHandler);
+
+
+
