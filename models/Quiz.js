@@ -26,13 +26,9 @@ Quiz.init(
             model: "user",
             key: "id",
         }
-
     },
-
-
   },
   {
-   
     sequelize,
     timestamps: false,
     freezeTableName: true,
@@ -40,6 +36,5 @@ Quiz.init(
     modelName: 'quiz',
   }
 );
-
 
 module.exports = Quiz;
