@@ -13,5 +13,17 @@
         "title": "Dog Quiz",
         "category": "Animals",
         "user_id": 1
+    },{
+        "title": "The world",
+        "category": "Geography",
+        "user_id": 1
+    },{
+        "title": "Columbus",
+        "category": "History",
+        "user_id": 1
+    },{
+        "title": "Presidential Animals",
+        "category": "Animals",
+        "user_id": 1
     }
 ]
