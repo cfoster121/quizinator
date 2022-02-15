@@ -4,6 +4,7 @@ async function logout() {
     headers: { "content-type": "application/json" },
   });
 
+//If user logs out, return to home page
   if (response.ok) {
     document.location.replace("/");
   } else {
@@ -11,4 +12,5 @@ async function logout() {
   }
 }
 
+//Logout button evnt listener
 document.querySelector("#logout-btn").addEventListener("click", logout);
