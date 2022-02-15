@@ -149,54 +149,54 @@ router.get("/dashboard", (req, res) => {
 });
 
 
-// router.get("/:id", (req, res) => {
-//   //we need to get all posts
-//   Quiz.findByPk(req.params.id, {
-//     include: [
-//       {
-//         model: Question,
-//       },
-//       {
-//         model: User,
-//         attributes: ["username"]
-//       },
-//     ],
-//   })
-//     .then((dbQuizData) => {
-//       res.json(dbQuizData);
-//     })
-//     // .then((dbQuizData) => {
-//     //   //serialize data
-//     //   if (!dbQuizData) {
-//     //     res.status(404).json({ message: "No Quiz Available" });
-//     //     return;
-//     //   }
-//     //   const quiz = dbQuizData.get({ plain: true }) // serialize all the posts
-//     //   console.log(quiz);
-//     // //   res.render("home", { quiz, loggedIn: req.session.loggedIn });
-//     // })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+router.get("/:id", (req, res) => {
+  //we need to get all posts
+  Quiz.findByPk(req.params.id, {
+    include: [
+      {
+        model: Question,
+      },
+      {
+        model: User,
+        attributes: ["username"]
+      },
+    ],
+  })
+    .then((dbQuizData) => {
+      res.json(dbQuizData);
+    })
+    // .then((dbQuizData) => {
+    //   //serialize data
+    //   if (!dbQuizData) {
+    //     res.status(404).json({ message: "No Quiz Available" });
+    //     return;
+    //   }
+    //   const quiz = dbQuizData.get({ plain: true }) // serialize all the posts
+    //   console.log(quiz);
+    // //   res.render("home", { quiz, loggedIn: req.session.loggedIn });
+    // })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
-// router.get("/category/:category", (req, res) => {
-//   //we need to get all posts
-//   Quiz.findAll({
-//     where: {
-//       category: req.params.category
-//     },
-//   })
-//     .then((dbQuizData) => {
-//       res.json(dbQuizData);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+router.get("/category/:category", (req, res) => {
+  //we need to get all posts
+  Quiz.findAll({
+    where: {
+      category: req.params.category
+    },
+  })
+    .then((dbQuizData) => {
+      res.json(dbQuizData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 //Display quiz questions when user selects a quiz to take
 router.get("/viewquiz/:id", (req, res) => {
