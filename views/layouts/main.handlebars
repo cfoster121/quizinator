@@ -14,10 +14,10 @@
 {{!-- Top NavBar --}}
 <div>
     <nav
-        class="flex justify-between h-200 px-5 py-10 mx-0 bg-gradient-to-l from-sky-600 via-[#0287c9] to-sky-600 shadow-md ">
+        class="sm:flex justify-between h-200 px-5 py-10 mx-0 bg-gradient-to-l from-sky-600 via-[#0287c9] to-sky-600 shadow-md ">
         {{!-- Page Title --}}
-        <h1 class="text-6xl font-bold">Quizinator</h1>
-        <div class="flex block space-x-4">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold">Quizinator</h1>
+        <div class="flex space-x-4">
             {{!-- Home button --}}
             <button>
                 <a href="/" class="bg-transparent hover:bg-slate-100/50 text-md px-4 py-2 rounded-md">Home</a>
@@ -42,6 +42,39 @@
         </div>
     </nav>
 </div>
+
+{{!-- Move side nav bar to top of screen on small displays --}}
+<div class="bg-[#66a5f2]/80 md:hidden">
+    <ul class="divide-y">
+        <li class="relative">
+            <a class="flex items-center text-md p-6 h-10 rounded hover:bg-[#438ce6] transition duration-400 ease-in-out"
+                href="/bycategory/sci-fi">Sci-Fi</a>
+        </li>
+        <li class="relative">
+            <a class="flex items-center text-md p-6 h-10 rounded  hover:bg-[#438ce6] transition duration-400 ease-in-out"
+                href="/bycategory/fantasy">Fantasy</a>
+        </li>
+        <li class="relative">
+            <a class="flex items-center text-md p-6 h-10 rounded  hover:bg-[#438ce6] transition duration-400 ease-in-out"
+                href="/bycategory/animals">Animals</a>
+        </li>
+        <li class="relative">
+            <a class="flex items-center text-md p-6 h-10 rounded hover:bg-[#438ce6] transition duration-400 ease-in-out"
+                href="/bycategory/geography">Geography</a>
+        </li>
+        <li class="relative">
+            <a class="flex items-center text-md p-6 h-10 rounded hover:bg-[#438ce6] transition duration-400 ease-in-out"
+                href="/bycategory/history">History</a>
+        </li>
+        <li class="relative">
+            <a class="flex items-center text-md p-6 h-10 rounded hover:bg-[#438ce6] transition duration-400 ease-in-out"
+                href="/bycategory/other">Other</a>
+        </li>
+    </ul>
+</div>
+
+
+
 
 {{!-- Displayed Quizzes --}}
 <div class="flex place-content-end">
