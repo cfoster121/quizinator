@@ -5,6 +5,8 @@
 {{!-- Display quiz title, creator, body --}}
 <div class="card single-quiz-padding text-center">
     <h1 id="quiz-title"  class="text-4xl text-center font-bold mb-4 underline">{{quiz.title}} </h1>
+
+    <img src="/images/{{quiz.id}}.png">
     <h4 class="text-center text-xl mb-6">Posted by {{quiz.user.username}}</h4>
     <div class="container">
         <p id="quiz-body" class="quiz-text quiz-text-padding">{{quiz.body}}</p>
