@@ -14,9 +14,6 @@ router.post('/', async (req, res) => {
       req.session.loggedIn = true;
       req.session.userid = dbUserData.id;
       req.session.username = dbUserData.username;
-      // req.session.username;
-      
-
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -34,6 +31,7 @@ router.post('/login', async (req, res) => {
       },
     });
 
+    //Validate username
     if (!dbUserData) {
       res
         .status(400)
@@ -41,8 +39,8 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    //Validate password
     const validPassword = await dbUserData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res
         .status(400)
@@ -55,9 +53,6 @@ router.post('/login', async (req, res) => {
       req.session.loggedIn = true;
       req.session.userid = dbUserData.id;
       req.session.username = dbUserData.username;
-      // console.log(req.session);
-      // console.log(req.body);
-
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
@@ -70,6 +65,7 @@ router.post('/login', async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
+
   // When the user logs out, destroy the session
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -79,11 +75,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
-
-
-
-
-
 
 module.exports = router;

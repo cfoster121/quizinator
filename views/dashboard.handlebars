@@ -1,11 +1,15 @@
+{{!-- Displayed when user clicks "Dashboard" - shows quizzes they have created --}}
+
 <h1 class="text-center text-5xl font-bold underline p-5 my-5">My Quizzes</h1>
 
+{{!-- Button to create new quiz --}}
 <div class="flex justify-center">
     <button class="bg-lime-300 hover:bg-lime-400 px-3 py-1 rounded-md mb-2 border-2 border-lime-400 shadow" type="button" id="new-quiz-btn">
         <a class="text-center text-xl" href="/createquiz">New Quiz</a>
     </button>
 </div>
 
+{{!-- Show each quiz on page --}}
 {{#each quizzes as |quiz| }}
 {{>quiz quiz}}
 {{/each}}

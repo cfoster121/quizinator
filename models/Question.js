@@ -41,13 +41,9 @@ Question.init(
             model: "quiz",
             key: "id"
         }
-
     },
-
-
   },
   {
-   
     sequelize,
     timestamps: false,
     freezeTableName: true,
@@ -55,7 +51,5 @@ Question.init(
     modelName: 'question',
   }
 );
-
-
 
 module.exports = Question;

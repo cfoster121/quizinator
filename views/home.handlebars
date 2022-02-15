@@ -1,10 +1,16 @@
+{{!-- Body of home page displaying all quizzes --}}
+
 <div class="bg-transparent p-8 m-8">
+
+{{!-- If there are quizzes, display those quizzes --}}
 {{#if quizzes}}
 {{#each quizzes as |quiz| }}
 {{>quiz quiz}}
 {{/each}}
+
+{{!-- Message displayed if there are no quizzes in selected category --}}
 {{else}}
 No quizzes in this category. Please check back later!
-
 {{/if}}
+
 </div>

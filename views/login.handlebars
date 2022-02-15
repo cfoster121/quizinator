@@ -1,97 +1,69 @@
-<div class="container flex justify-evenly bg-gradient-to-r from-[#b2d1f7] via-[#66a5f2]/80 to-[#b2d1f7]  border-2 border-blue-500 rounded py-20 m-4 shadow-lg">
+{{!-- Displayed when user clicks 'Login' button --}}
 
-<div class="w-full max-w-xs">
-  <form class="px-8 pt-6 pb-8 mb-4">
-  <h1 class="text-4xl text-center font-bold mb-6 underline">Login</h1>
-    <div class="mb-4">
-      <label class="block text-center text-lg font-semibold mb-2" for="email">
-        Email
-      </label>
-      <input class=" rounded w-full py-2 px-3 text-gray-700" id="email-login" type="text" placeholder="Email">
-    </div>
-    <div class="mb-6">
-      <label class="block text-center text-lg font-semibold mb-2" for="password">
-        Password
-      </label>
-      <input class="rounded w-full py-2 px-3 text-gray-700 mb-3" id="password-login" type="password" placeholder="********">
-    </div>
-    <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ml-20" type="button" id="login-btn">
-        Login
-      </button>
-    </div>
-  </form>
-</div>
+<div
+  class="container flex justify-evenly bg-gradient-to-r from-[#b2d1f7] via-[#66a5f2]/80 to-[#b2d1f7]  border-2 border-blue-500 rounded py-20 m-4 shadow-lg">
 
-<div class="w-full max-w-xs">
-  <form class="px-8 pt-6 pb-8 mb-4">
-  <h1 class="text-4xl text-center font-bold mb-6 underline">Sign Up</h1>
+  {{!-- Login form --}}
+  <div class="w-full max-w-xs">
+    <form class="px-8 pt-6 pb-8 mb-4">
+      <h1 class="text-4xl text-center font-bold mb-6 underline">Login</h1>
+
+      {{!-- Email input --}}
       <div class="mb-4">
-      <label class="block text-center text-lg font-semibold mb-2" for="email">
-        Username
-      </label>
-      <input class=" rounded w-full py-2 px-3 text-gray-700" id="username-signup" type="text" placeholder="Username">
-    </div>
-    <div class="mb-4">
-      <label class="block text-center text-lg font-semibold mb-2" for="email">
-        Email
-      </label>
-      <input class=" rounded w-full py-2 px-3 text-gray-700" id="email-signup" type="text" placeholder="Email">
-    </div>
-    <div class="mb-6">
-      <label class="block text-center text-lg font-semibold mb-2" for="password">
-        Password
-      </label>
-      <input class="rounded w-full py-2 px-3 text-gray-700 mb-3" id="password-signup" type="password" placeholder="********">
-    </div>
-    <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ml-20" type="button" id="signup-btn">
-        Sign Up
-      </button>
-    </div>
-  </form>
-</div>
-
-{{!-- <div class="flex flex-col justify-center items-center">
-    <h2 class="text-3xl text-bold underline py-3">Login</h2>
-    <form class="form login-form">
-      <div>
-        <label for="email-login">Email:</label>
-        <input class="input w-100 rounded-md mb-2" type="text" id="email-login" />
-        </div>
-        <div>
-        <label for="password-login">Password:</label>
-        <input class="input rounded-md mb-2" type="password" id="password-login" />
-        </div>
-        <div>
-        <button id="login-btn" class="bg-slate-300 rounded-full p-3" type="submit">login</button>
-        </div>
-    </form>
-  </div>
-
-
-  <div class="login-card row-start-2 container text-center pb-10">
-    <h2 class="text-3xl text-bold underline py-3">Signup</h2>
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="username-signup">Username:</label>
-        <input class="input rounded-md mb-2" type="text" id="username-signup" />
+        <label class="block text-center text-lg font-semibold mb-2" for="email">
+          Email</label>
+        <input class="rounded w-full py-2 px-3 text-gray-700" id="email-login" type="text" placeholder="Email">
       </div>
-      <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="input rounded-md mb-2" type="text" id="email-signup" />
+
+      {{!-- Password input --}}
+      <div class="mb-6">
+        <label class="block text-center text-lg font-semibold mb-2" for="password">Password</label>
+        <input class="rounded w-full py-2 px-3 text-gray-700 mb-3" id="password-login" type="password"
+          placeholder="********">
       </div>
-      <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="input rounded-md mb-2" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button id="signup-btn" class="bg-slate-300 rounded-full p-3" type="submit">signup</button>
+
+      {{!-- Login button --}}
+      <div class="flex items-center justify-between">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ml-20" type="button"
+          id="login-btn">Login</button>
+
       </div>
     </form>
   </div>
-</div> --}}
 
+  {{!-- Signup form --}}
+  <div class="w-full max-w-xs">
+    <form class="px-8 pt-6 pb-8 mb-4">
+      <h1 class="text-4xl text-center font-bold mb-6 underline">Sign Up</h1>
 
+      {{!-- Username input --}}
+      <div class="mb-4">
+        <label class="block text-center text-lg font-semibold mb-2" for="username-signup">Username</label>
+        <input class=" rounded w-full py-2 px-3 text-gray-700" id="username-signup" type="text" placeholder="Username">
+      </div>
 
-<script src="/js/login.js"></script> 
+      {{!-- Email input --}}
+      <div class="mb-4">
+        <label class="block text-center text-lg font-semibold mb-2" for="email-signup">Email</label>
+        <input class=" rounded w-full py-2 px-3 text-gray-700" id="email-signup" type="text" placeholder="Email">
+      </div>
+
+      {{!-- Password input --}}
+      <div class="mb-6">
+        <label class="block text-center text-lg font-semibold mb-2" for="password-signup">Password</label>
+        <input class="rounded w-full py-2 px-3 text-gray-700 mb-3" id="password-signup" type="password"
+          placeholder="********">
+      </div>
+
+      {{!-- Signup button --}}
+      <div class="flex items-center justify-between">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ml-20" type="button"
+          id="signup-btn">
+          Sign Up
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="/js/login.js"></script>
