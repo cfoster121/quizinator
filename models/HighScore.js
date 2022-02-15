@@ -21,7 +21,6 @@ HighScore.init(
             model: "quiz",
             key: "id"
         }
-
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -29,11 +28,9 @@ HighScore.init(
             model: "user",
             key: "id"
         }
-
     },
   },
   {
-
     sequelize,
     timestamps: false,
     freezeTableName: true,

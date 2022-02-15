@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const { Quiz } = require("../../models");
-//get all the comments
 
-
+//Display quizzes by ID
 router.get("/:quiz_id", (req, res) => {
   Quiz.findByPk(req.params.quiz_id, {
   })
@@ -15,8 +14,8 @@ router.get("/:quiz_id", (req, res) => {
     });
 });
 
+//Create a new quiz
 router.post("/", (req, res) => {
-  //expects 
   Quiz.create({
     title: req.body.title,
     category: req.body.category,
@@ -24,13 +23,11 @@ router.post("/", (req, res) => {
   })
     .then((dbQuizData) => {
       console.log(dbQuizData);
-      // res.body = dbQuizData;
       res.json(dbQuizData);
-      
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err); //REST api needs status
+      res.status(500).json(err); 
     });
 });
 

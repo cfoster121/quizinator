@@ -28,7 +28,7 @@ A quiz creation and website to take multiple quizzes! we wanted a website to be 
 - [Link to Github](https://github.com/antieatingactivist)
 - [Link to LinkedIn](https://www.linkedin.com/in/garrett-corbin-7a7777227/)
 
-* *Courtney Foster** 
+* **Courtney Foster** 
 - [Link to Portfolio Site](https://cfoster121.github.io/portfolio/)
 - [Link to Github](https://github.com/cfoster121)
 - [Link to LinkedIn](https://www.linkedin.com/in/courtney-foster-0b364575/)

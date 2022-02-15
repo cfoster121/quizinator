@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const { User, Quiz, Question, HighScore } = require("../models");
 const sequelize = require("../config/connection");
-//home route server homepage
+
+//Home route server homepage
 router.get("/", (req, res) => {
-  //we need to get all posts
+  
+  //Display all quizzes on home page
   Quiz.findAll({
       attributes: ["id", "title", "category", "user_id"],
       include: [
@@ -15,13 +17,12 @@ router.get("/", (req, res) => {
       ],
   })
     .then((dbQuizData) => {
-      //serialize data
+      //Serialize data
       if (!dbQuizData) {
         res.status(404).json({ message: "No Quizes Available" });
         return;
       }
-      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
-      // console.log(posts);
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); 
       res.render("home", {
         quizzes: quizzes,
         loggedIn: req.session.loggedIn
@@ -33,8 +34,8 @@ router.get("/", (req, res) => {
     });
 });
 
+//Display quizzes by category
 router.get("/bycategory/:category", (req, res) => {
-  //we need to get all posts
   Quiz.findAll({
       attributes: ["id", "title", "category", "user_id"],
       where: {
@@ -49,13 +50,12 @@ router.get("/bycategory/:category", (req, res) => {
       ],
   })
     .then((dbQuizData) => {
-      //serialize data
+      //Serialize data
       if (!dbQuizData) {
         res.status(404).json({ message: "No Quizes Available" });
         return;
       }
-      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
-      // console.log(posts);
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true }));
       res.render("home", {
         quizzes: quizzes,
         loggedIn: req.session.loggedIn
@@ -67,18 +67,19 @@ router.get("/bycategory/:category", (req, res) => {
     });
 });
 
+//If user is not logged in, render login page when selected
 router.get("/login", (req, res) => {
   console.log("Is logged in?", req.session.loggedIn);
   res.render("login", { loggedIn: req.session.loggedIn });
 });
 
-
-
+//If user is logged in, render create quiz page when selected
 router.get("/createquiz", (req, res) => {
   console.log("Create a new quiz", req.session.loggedIn);
   res.render("quiz-create", { loggedIn: req.session.loggedIn });
 });
 
+//If user is logged in, render page to create new questions when user is creating a new quiz
 router.get("/createquiz/question/:id", (req, res) => {
   console.log("Create a new question", req.session.loggedIn);
   res.render("question-create", { 
@@ -87,7 +88,7 @@ router.get("/createquiz/question/:id", (req, res) => {
   });
 });
 
-
+//Render high score page by quiz ID
 router.get("/highscore/:id", (req, res) => {
   HighScore.findAll({
     where: {
@@ -120,25 +121,22 @@ router.get("/highscore/:id", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-  
 });
 
 
-
+//Display quizzes that user has created
 router.get("/dashboard", (req, res) => {
-  //we need to get all quizes for user
   Quiz.findAll({
     where: {user_id: req.session.userid},
       attributes: ["id", "title", "category", "user_id"],
   })
     .then((dbQuizData) => {
-      //serialize data
+      //Serialize data
       if (!dbQuizData) {
         res.status(404).json({ message: "No Quizes Available" });
         return;
       }
-      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true })); // serialize all the posts
-      // console.log(posts);
+      const quizzes = dbQuizData.map((Quiz) => Quiz.get({ plain: true }));
       res.render("dashboard", {
         quizzes: quizzes,
         loggedIn: req.session.loggedIn
@@ -150,10 +148,10 @@ router.get("/dashboard", (req, res) => {
     });
 });
 
+
 router.get("/:id", (req, res) => {
   //we need to get all posts
   Quiz.findByPk(req.params.id, {
-    // attributes: ["id", "title", "body", "user_id"],
     include: [
       {
         model: Question,
@@ -183,6 +181,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+
 router.get("/category/:category", (req, res) => {
   //we need to get all posts
   Quiz.findAll({
@@ -193,23 +192,14 @@ router.get("/category/:category", (req, res) => {
     .then((dbQuizData) => {
       res.json(dbQuizData);
     })
-    // .then((dbQuizData) => {
-    //   //serialize data
-    //   if (!dbQuizData) {
-    //     res.status(404).json({ message: "No Quiz Available" });
-    //     return;
-    //   }
-    //   const quiz = dbQuizData.get({ plain: true }) // serialize all the posts
-    //   console.log(quiz);
-    // //   res.render("home", { quiz, loggedIn: req.session.loggedIn });
-    // })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
+
+//Display quiz questions when user selects a quiz to take
 router.get("/viewquiz/:id", (req, res) => {
-  //we need to get all posts
   Quiz.findByPk (req.params.id,{
     include: [
       {
@@ -219,26 +209,16 @@ router.get("/viewquiz/:id", (req, res) => {
       },
       {
         model: Question,
-        // as: "question",
-        // attributes: ["id", "comment_text", "user_id"],
-        // include: [
-        //   {
-        //     model: User,
-        //     as: "user",
-        //     attributes: ["username"],
-        //   },
-        // ],
       },
     ],
   })
     .then((dbQuizData) => {
-      //serialize data
+      //Serialize data
       if (!dbQuizData) {
         res.status(404).json({ message: "No Quiz Available" });
         return;
       }
-      const quiz = dbQuizData.get({ plain: true }); // serialize all the posts
-      console.log(quiz);
+      const quiz = dbQuizData.get({ plain: true }); 
       const myQuiz = Quiz.user_id == req.session.user_id;
       res.render("single-quiz", {
         quiz,
@@ -251,4 +231,5 @@ router.get("/viewquiz/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 module.exports = router;

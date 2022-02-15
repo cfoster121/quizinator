@@ -21,7 +21,6 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-
   await Question.bulkCreate(questionData, {
     individualHooks: true,
     returning: true,
@@ -32,10 +31,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-
-
   process.exit(0);
 };
-
 
 seedDatabase();
