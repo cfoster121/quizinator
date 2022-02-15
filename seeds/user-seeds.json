@@ -3,5 +3,10 @@
         "username": "default",
         "email": "default@default.com",
         "password": "password"
+    },{
+        "username": "guest",
+        "email": "guest@default.com",
+        "password": "password"
     }
+
 ]
