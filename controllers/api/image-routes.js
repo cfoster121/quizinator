@@ -5,9 +5,10 @@ const Resize = require('./Resize');
 const path = require('path');
 
 router.post('/', upload.single('image'), async function (req, res) {
+    console.log(req.file);
     const imagePath = path.join(__dirname, '../../public/images/');
     const fileUpload = new Resize(imagePath);
-    console.log(req.file);
+    
     if (!req.file) {
       res.status(401).json({error: 'Please provide an image'});
     }

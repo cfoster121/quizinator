@@ -13,6 +13,7 @@ async function quizFormHandler(event) {
             }),
             headers: { "Content-Type": "application/json" },
         });
+      
 
         if (response.ok) {
             const data = await response.json();
@@ -26,6 +27,42 @@ async function quizFormHandler(event) {
 
 }
 
+
+async function imageUploadHandler(event) {
+    event.preventDefault();
+    const image = document.querySelector("#image[type='file']");
+    console.log("-------", image);
+    let formData = new FormData();
+    formData.append("image", image.files[0]);
+
+    if (formData) {
+        const response = await fetch("/api/image/", {
+            method: "post",
+            body: formData,
+                
+                
+            
+            // headers: { "Content-Type": "multipart/form-data" },
+        });
+      
+
+        if (response.ok) {
+            const data = await response.json();
+            // console.log(data.id);
+            // document.location.replace(`/createquiz/question/${data.id}`);
+
+        } else {
+            alert(response.statusText);
+        }
+    }
+
+}
+
 document
   .querySelector("#submit-btn")
   .addEventListener("click", quizFormHandler);
+
+document
+  .querySelector("#image-submit-btn")
+  .addEventListener("click", imageUploadHandler);
+

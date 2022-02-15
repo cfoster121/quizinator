@@ -25,6 +25,8 @@
                 <option value="Other">Other</option>
 
             </select>
+            
+               
         </div>
         <div class="flex items-center justify-between">
             <button
@@ -37,11 +39,11 @@
 </div>
 
 </div>
-
-<form class="uploadForm" action="/api/image/" method="post" enctype="multipart/form-data">
+<form class="uploadForm">
+{{!-- <form class="uploadForm" action="/api/image/" method="post" enctype="multipart/form-data"> --}}
     <label class="control-label">Select File</label>
-    <input name="image" id="input-1" type="file" class="file">
-    <input type="submit" value="submit" />
+    <input name="image" id="image" type="file" class="file">
+    <input type="submit" value="submit" id="image-submit-btn"/>
 </form>
 
 <script src="/js/quiz-create.js"></script>
