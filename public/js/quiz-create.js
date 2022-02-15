@@ -16,7 +16,9 @@ async function quizFormHandler(event) {
       
 
         if (response.ok) {
+
             const data = await response.json();
+            imageUploadHandler(data.id);
             // console.log(data.id);
             document.location.replace(`/createquiz/question/${data.id}`);
 
@@ -28,28 +30,24 @@ async function quizFormHandler(event) {
 }
 
 
-async function imageUploadHandler(event) {
-    event.preventDefault();
+async function imageUploadHandler(id) {
+    // event.preventDefault();
     const image = document.querySelector("#image[type='file']");
-    console.log("-------", image);
+    
     let formData = new FormData();
     formData.append("image", image.files[0]);
+    console.log("-------", image.files.length);
 
-    if (formData) {
-        const response = await fetch("/api/image/", {
+    if (image.files.length) {
+        const response = await fetch(`/api/image/${id}`, {
             method: "post",
             body: formData,
-                
-                
-            
-            // headers: { "Content-Type": "multipart/form-data" },
         });
       
 
         if (response.ok) {
             const data = await response.json();
-            // console.log(data.id);
-            // document.location.replace(`/createquiz/question/${data.id}`);
+   
 
         } else {
             alert(response.statusText);
@@ -62,7 +60,9 @@ document
   .querySelector("#submit-btn")
   .addEventListener("click", quizFormHandler);
 
-document
-  .querySelector("#image-submit-btn")
-  .addEventListener("click", imageUploadHandler);
+// document
+//   .querySelector("#submit-btn")
+//   .addEventListener("click", imageUploadHandler);
+
+
 
