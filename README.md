@@ -20,6 +20,14 @@ A quiz creation and website to take multiple quizzes! we wanted a website to be 
 
 * [See Live Site](https://stark-scrubland-48398.herokuapp.com/)
 
+![startrek1](https://user-images.githubusercontent.com/91674571/154112133-8b671963-2025-4d8c-aa5e-eec753191e1d.gif)
+
+![image](https://user-images.githubusercontent.com/91674571/154112148-9c4a6d6f-efa0-4e74-a992-cb1784eafdb3.png)
+
+![image](https://user-images.githubusercontent.com/91674571/154112432-34cea3c7-2469-4072-b6c3-f32732e7fbd7.png)
+
+![image](https://user-images.githubusercontent.com/91674571/154112538-21befe3d-02a1-4713-a6ab-565f6949854d.png)
+
 
 ## Authors
 
