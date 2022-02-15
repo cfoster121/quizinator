@@ -1,37 +1,20 @@
-
-
-<div class="w-full max-w-xs" id="question-block">
-    <form class="px-8 pt-6 pb-8 mb-4">
-        <h1 class="text-4xl text-center font-bold mb-6 underline">Create Quiz</h1>
-        <div class="mb-4">
-
-<div>
-<div class="text-2xl text-center mb-2 mt-10">Create Questions</div>
-
-
+<div id="question-block">
+<div>Create questions</div>
+<div class="single-question" id="single-question">
 {{!-- Quiz title and category --}}
 {{!-- <form id="new-question"> --}}
-
 {{!-- <label for="quiz-id">Quiz ID:</label> --}}
-<div id="single-question" class="m-8">
 <input class="form-input" type="hidden" id="quiz-id" value={{quiz_id}}></input>
-
 <label for="question_content">Question:</label>
-<input class="rounded text-gray-700" type="text" id="question-content"></input>
-
+<input class="form-input" type="text" id="question-content"></input>
 <label for="answer-a">Answer A:</label>
-<input class="rounded text-gray-700" type="text" id="answer-a"></input>
-
+<input class="form-input" type="text" id="answer-a"></input>
 <label for="answer-b">Answer B:</label>
-<input class="rounded text-gray-700" type="text" id="answer-b"></input>
-
+<input class="form-input" type="text" id="answer-b"></input>
 <label for="answer-c">Answer C:</label>
-<input class="rounded text-gray-700" type="text" id="answer-c"></input>
-
+<input class="form-input" type="text" id="answer-c"></input>
 <label for="answer-d">Answer D:</label>
-<input class="rounded text-gray-700" type="text" id="answer-d"></input>
-
-<div class="mt-6">
+<input class="form-input" type="text" id="answer-d"></input>
 <label for="answer_correct">Correct Answer:</label>
 <select id="answer-correct">
   <option value="answer_a">A</option>
@@ -39,16 +22,10 @@
   <option value="answer_c">C</option>
   <option value="answer_d">D</option>
 </select>
-</div>
 {{!-- <input class="form-input" type="text" id="answer-correct"></input> --}}
-
-
-</div>
 {{!-- </form> --}}
 </div>
 </div>
 <button type="submit" id="submit-btn">Submit</button>
 <button type="submit" id="add-question">+</button>
-
-
-<script src="/js/question-create.js"></script> 
+<script src="/js/question-create.js"></script>
