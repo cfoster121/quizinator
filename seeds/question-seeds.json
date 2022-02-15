@@ -27,11 +27,11 @@
         "quiz_id": 1
 
     },{
-        "question_content": "Was John Snow a Bastard?",
-        "answer_a" : "Yes",
-        "answer_b" : "No",
-        "answer_c" : "No",
-        "answer_d" : "No",
+        "question_content": "Who was John Snows father?",
+        "answer_a" : "Targerian",
+        "answer_b" : "Ned Stark",
+        "answer_c" : "Lord Vader",
+        "answer_d" : "Robert Berathian",
         "answer_correct" : "answer_a",
         "quiz_id": 2
 
@@ -45,13 +45,37 @@
         "quiz_id": 3
 
     },
-    {"question_content": "Was John Snow a Bastard twice?",
-        "answer_a" : "Yes",
-        "answer_b" : "No",
-        "answer_c" : "No",
-        "answer_d" : "No",
+    {"question_content": "Where did john Snow go?",
+        "answer_a" : "to the wall",
+        "answer_b" : "to a party",
+        "answer_c" : "to the mormonts",
+        "answer_d" : "The lannistars",
         "answer_correct" : "answer_a",
         "quiz_id": 2
+    },
+    {"question_content": "What Shape is the Earth?",
+        "answer_a" : "Square",
+        "answer_b" : "Flat",
+        "answer_c" : "Triangle",
+        "answer_d" : "Round",
+        "answer_correct" : "answer_d",
+        "quiz_id": 4
+    },
+    {"question_content": "What year did Columbus sail the ocean blue?",
+        "answer_a" : "1386",
+        "answer_b" : "1492",
+        "answer_c" : "1501",
+        "answer_d" : "2020",
+        "answer_correct" : "answer_b",
+        "quiz_id": 5
+    },
+    {"question_content": "What pet did Andrew Jackson have?",
+        "answer_a" : "A goat",
+        "answer_b" : "A bull",
+        "answer_c" : "A Parrot",
+        "answer_d" : "A cat",
+        "answer_correct" : "answer_a",
+        "quiz_id": 6
     }
 
 
