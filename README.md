@@ -18,7 +18,7 @@ A quiz creation and website to take multiple quizzes! we wanted a website to be 
 
 ## Deployed Link
 
-* [See Live Site](https://stark-scrubland-48398.herokuapp.com/)
+* [See Live Site](https://quizinator.home.jgarrettcorbin.com/)
 
 ![startrek1](https://user-images.githubusercontent.com/91674571/154112133-8b671963-2025-4d8c-aa5e-eec753191e1d.gif)
 
